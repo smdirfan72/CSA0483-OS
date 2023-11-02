@@ -87,3 +87,106 @@ v.Add the waiting_time to total_waiting_time.
 9)Display the average waiting time.
 
 10)End
+#4-> WAITING PROCESS WITH THE SMALLEST EXECUTION TIME TO EXECUTE NEXT:-
+
+ALGORITHAM STEPS:-
+
+1)Input the number of processes (num_processes).
+
+2)Declare a structure struct Process with fields: ID, arrival time, execution time (burst time), and priority.
+
+3)Allocate memory for an array of num_processes Process structures.
+
+4)For each process in the array, do the following:
+
+  a.Input the arrival time for the process.
+
+  b.Input the execution time (burst time) for the process.
+  
+  c.Set the priority of the process to its execution time.
+
+5)Sort the array of processes based on their arrival times in ascending order. This helps in scheduling processes that arrive earlier first.
+
+6)Initialize current_time to 0 (the current time is the time elapsed so far).
+
+7)Print the Gantt Chart header.
+
+8)For each process in the sorted array of processes, do the following:
+  
+  a. Print a bar in the Gantt Chart to represent the start of the execution of the current process.
+  
+  b. Update current_time by adding the execution time of the current process.
+  
+  c. Print spaces in the Gantt Chart to represent the time interval for the execution of the current process.
+  
+  d. Repeat steps a-c for the next process in the sorted array.
+
+9)Print a vertical bar to mark the end of the Gantt Chart.
+
+10)Free the allocated memory for the array of processes.
+
+11)End.
+
+
+#5-> WAITING PROCESS WITH THE HIGHEST PRIORITY TO EXECUTE NEXT:-
+
+ALGORITHM STEPS:-
+
+1)Initialize a data structure to store processes and their priorities (e.g., an array or a priority queue).
+
+2)Insert processes into the data structure with their respective priorities.
+
+3)Build the data structure into a max-heap (or equivalent priority structure).
+
+4)Repeat the following steps until there are no more processes in the data structure:
+
+  a. Extract the process with the highest priority from the data structure.
+  
+  b. Execute the extracted process.
+  
+  c. If there are more processes in the data structure, go back to step 4a.
+  
+5)Finish when all processes have been executed.
+
+
+#6-> IMPLMENTING PRE-EMPTIVE PRIORITY SCHEDULING ALGORITHM:-
+
+ALGORITM STEPS:-
+
+1)Initialize data structures to store process information, such as arrival time, burst time, priority, completion time, turnaround time, and waiting time.
+
+2)Input the number of processes (n).
+
+3)For each process i from 1 to n, do:
+  
+  a. Input the arrival time, burst time, and priority of the process.
+  
+  b. Initialize the burst time for process i.
+  
+  c. Calculate the total burst time (total_burst_time) by summing up the burst times of all processes.
+
+4)Initialize the current time (current_time) to 0.
+
+5)While current_time is less than total_burst_time, do:
+  
+  a.Find the process with the highest priority among the processes that have arrived and have remaining burst time (use the findHighestPriority function):
+   
+   i. Initialize highest_priority to -1 and highest_priority_process to -1.
+   
+   ii. For each process i from 1 to n, do:
+   
+   - If the process has arrived (arrival_time <= current_time) and has remaining burst time (burst_time > 0):
+   
+   - If the process's priority is higher than the current highest_priority or if highest_priority is -1 (indicating the first process found), update 
+     highest_priority and highest_priority_process.
+   
+   iii. highest_priority_process now represents the process to be executed next.
+  
+  b. If no process is found in step 5a, increment current_time by 1 (idle CPU time).
+  
+  c. If a process is found in step 5a, execute it by decrementing its burst time by 1 and updating current_time.
+    
+   i. If the process's burst time becomes 0, calculate its completion time, turnaround time, and waiting time.
+
+6)Display the process details, including their arrival time, burst time, priority, completion time, turnaround time, and waiting time for all processes.
+
