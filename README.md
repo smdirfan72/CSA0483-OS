@@ -190,3 +190,95 @@ ALGORITM STEPS:-
 
 6)Display the process details, including their arrival time, burst time, priority, completion time, turnaround time, and waiting time for all processes.
 
+#7-> IMPLEMENTATION OF NON PREEMPTIVE SJF ALGORITHM:-
+
+ALGORITHM STEPS:-
+
+1)Create an array of struct Process to store process information.
+
+2)For each process i from 1 to n:
+    
+   a.Read the arrival time for the process i.
+   
+   b.Read the burst time for the process i.
+   
+   c.Initialize waitingTime[i] and turnaroundTime[i] to 0.
+      Set currentTime to 0.
+
+3)Repeat until all processes are executed:
+   
+   a.Initialize shortest to -1.
+   
+   b.For each process j from 0 to n - 1:
+      
+   i. If processes[j].arrivalTime <= currentTime and processes[j].burstTime > 0:
+     
+   - If shortest is -1 or processes[j].burstTime < processes[shortest].burstTime:
+   
+   - Set shortest to j.
+   
+   c.If shortest is -1:
+
+   No process is available at this time, so increment currentTime by 1 (idle time).
+
+   d. Else:
+
+   i. Calculate waitingTime[shortest] as (currentTime - processes[shortest].arrivalTime).
+   
+   ii. Calculate turnaroundTime[shortest] as (waitingTime[shortest] + processes[shortest].burstTime).
+   
+   iii. Increment currentTime by processes[shortest].burstTime.
+   
+   iv. Set processes[shortest].burstTime to 0 to mark the process as completed.
+     
+4)Calculate the totalWaitingTime and totalTurnaroundTime by summing up the respective values for all processes.
+
+5)Calculate the averageWaitingTime as (totalWaitingTime / n).
+
+6)Calculate the averageTurnaroundTime as (totalTurnaroundTime / n).
+
+7)Display the process-wise waiting time, turnaround time, average waiting time, and average turnaround time.
+
+8)End.
+
+
+#8-> SIMULATING ROUND ROBIN SCHEDULING ALGORITHM:-
+
+ALGORITHM STEPS:-
+
+1)Create an array of struct Process to store process information.
+
+2)For each process i from 1 to n:
+   
+   a. Read the burst time for the process i.
+   
+   b. Initialize the remainingTime for process i with the burst time.
+
+3)Set currentTime to 0.
+
+4)Initialize remainingProcesses to n.
+
+5)Repeat until all processes are completed (remainingProcesses > 0):
+   
+   a. For each process i from 0 to n - 1:
+   
+   i. If processes[i].remainingTime is greater than 0:
+    
+   - Calculate executeTime as the minimum of quantum and processes[i].remainingTime.
+   
+   - Decrement processes[i].remainingTime by executeTime.
+   
+   - Increment currentTime by executeTime.
+   
+   - Display that process i is executing for executeTime units, with its remaining time.
+   
+   - If processes[i].remainingTime becomes 0:
+   
+   - Decrement remainingProcesses by 1.
+   
+   - Display that process i has completed its execution.
+
+6)Display the completion of all processes.
+
+7)End.
+
