@@ -190,6 +190,7 @@ ALGORITM STEPS:-
 
 6)Display the process details, including their arrival time, burst time, priority, completion time, turnaround time, and waiting time for all processes.
 
+
 #7-> IMPLEMENTATION OF NON PREEMPTIVE SJF ALGORITHM:-
 
 ALGORITHM STEPS:-
@@ -282,5 +283,178 @@ ALGORITHM STEPS:-
 
 7)End.
 
-#9
+
+#9-> INTER-PROCESS COMMUNICATION USING SHARED MEMORY:-
+
+ALGORITHM STEPS:-
+
+=>Producer (writer.c):
+
+1)Start
+
+2)Generate a unique key for the shared memory using ftok.
+
+3)Create a shared memory segment using shmget.
+
+4)Attach to the shared memory segment using shmat.
+
+5)Read an integer value from the user.
+
+6)Write the integer value to the shared memory.
+
+7)Detach from the shared memory using shmdt.
+
+8)End.
+
+=>Consumer (reader.c):
+
+1)Start
+
+2)Generate the same unique key for the shared memory using ftok.
+
+3)Get the shared memory segment using shmget.
+
+4)Attach to the shared memory segment using shmat.
+
+5)Read the integer value from the shared memory.
+
+6)Display the value read from the shared memory.
+
+7)Detach from the shared memory using shmdt.
+
+8)Remove the shared memory segment using shmctl.
+
+9)End.
+
+#10-> INTER-PROCESS COMMUNICATION USING MESSAGE QUEUE:-
+
+ALGORITHM STEPS:-
+
+=>Sender (producer.c):
+
+1)Start
+
+2)Generate a unique key for the message queue using ftok.
+
+3)Create or get a message queue using msgget.
+
+4)Define a message structure with a message type (greater than 0) and a message text.
+
+5)Prompt the user to enter a message and store it in the message structure.
+
+6)Send the message to the message queue using msgsnd.
+
+7)End.
+
+=>Receiver (consumer.c):
+
+1)Start
+
+2)Generate the same unique key for the message queue using ftok.
+
+3)Get the message queue using msgget.
+
+4)Define a message structure with a message type (greater than 0) and a message text.
+
+5)Receive a message from the message queue using msgrcv.
+
+6)Display the received message from the message structure.
+
+7)Remove the message queue using msgctl.
+
+8)End.
+
+#11-> CONCEPT OF MULTITHREADING:-
+
+ALGORITHM STEPS:-
+
+=>Main Program:
+
+1)Start
+
+2)Define constants NUM_THREADS (number of threads) and MAX_COUNT (maximum count per thread).
+
+3)Initialize a global integer variable counter to 0 to serve as a shared counter.
+
+4)Create a mutex using pthread_mutex_t mutex to protect the critical section.
+
+5)Create an array of pthread_t objects named threads.
+
+6)Create NUM_THREADS threads, each running the thread_function.
+
+7)Wait for all threads to complete using pthread_join.
+
+8)Display the final value of the shared counter.
+
+9)End. =>Thread Function (thread_function):
+
+1)Start
+
+2)For each thread, execute the following loop MAX_COUNT times:
+
+a. Lock the mutex using pthread_mutex_lock to enter the critical section.
+
+b. Increment the counter by 1.
+
+c. Unlock the mutex using pthread_mutex_unlock to exit the critical section.
+
+3)End.
+
+#12-> SIMULATING THE CONCEPT OF DINING-PHILOSOPHERS PROBLEM:-
+
+ALGORITHM STEPS:-
+
+=>Main Program:
+
+1)Start
+
+2)Create an array of pthread_t objects called philosophers.
+
+3)Initialize an array of semaphores called forks, with one semaphore per philosopher.
+
+4)Initialize a semaphore called mutex to control access to the forks.
+
+5)Seed the random number generator.
+
+6)For each philosopher from 0 to NUM_PHILOSOPHERS - 1, create a thread running the philosopher function and passing its ID as an argument.
+
+7)Wait for all philosopher threads to complete using pthread_join.
+
+8)End.
+
+=>Philosopher Function (philosopher):
+
+1)Start
+
+2)Extract the philosopher's ID from the argument.
+
+3)Define variables left_fork and right_fork for the indices of the philosopher's left and right forks.
+
+4)Repeat indefinitely (philosopher's lifecycle):
+
+a. Think: Output that the philosopher is thinking.
+
+b. Sleep for a random duration to simulate thinking.
+
+c. Pick up left fork: Wait on the forks semaphore for the left fork.
+
+d. Output that the philosopher picked up the left fork.
+
+e. Pick up right fork: Wait on the forks semaphore for the right fork.
+
+f. Output that the philosopher picked up the right fork.
+
+g. Eat: Output that the philosopher is eating.
+
+h. Sleep for a random duration to simulate eating.
+
+i. Put down right fork: Signal the forks semaphore for the right fork.
+
+j. Output that the philosopher put down the right fork.
+
+k. Put down left fork: Signal the forks semaphore for the left fork.
+
+l. Output that the philosopher put down the left fork.
+
+5)End
 
