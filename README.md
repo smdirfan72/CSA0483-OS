@@ -458,3 +458,89 @@ l. Output that the philosopher put down the left fork.
 
 5)End
 
+
+#13-> IMPLEMENTATION OF VARIOUS MEMORY ALLOCATION STRATEGIES:-
+
+ALGORITHM STEPS:-
+
+1) Start the program.
+
+2) Allocate memory statically:
+
+   a. Declare a global variable (e.g., globalVar) with a fixed size and value. This demonstrates static memory allocation.
+
+3) Define a function stackAllocationExample():
+  
+   a. Inside the function, declare a local variable (e.g., stackVar) with a fixed size and value.
+
+   b. Print the value of stackVar, which demonstrates stack allocation.
+
+4) Define a function heapAllocationExample():
+
+   a. Inside the function, declare a pointer to an integer (e.g., heapVar).
+
+   b. Allocate memory for heapVar on the heap using malloc.
+
+   c. Set a value for heapVar.
+
+   d. Print the value of heapVar, which demonstrates heap allocation.
+
+   e. Release the allocated memory using free.
+
+5) In the main function:
+ 
+   a. Call the stackAllocationExample function.
+ 
+   b. Call the heapAllocationExample function.
+
+6)End the program.
+
+
+#14->ORGANIZING THE FILE USING SINGLE LEVEL DIRECTORY:-
+
+ALGORITHM STEPS:-
+
+1) Start the program.
+
+2) Create functions for file organization:
+
+    a. createFile():
+
+   i. Prompt the user to enter a filename.
+
+   ii. Attempt to create the file using fopen in write mode.
+
+   iii. If successful, display a success message; otherwise, display an error message.
+
+   b. listFiles():
+
+    i. Use the system command 'ls' to list all files in the current directory.
+
+    ii. Display the list of files to the user.
+
+3) In the main function:
+
+   a. Create an infinite loop to display a menu to the user:
+
+    i. Display available options:
+
+    - Create a file
+
+    - List files
+         
+    - Exit
+
+      ii. Prompt the user for their choice (1, 2, or 3).
+
+      iii. Use a switch statement to perform actions based on the user's choice:
+
+         - If the choice is 1, call the createFile() function.
+         
+         - If the choice is 2, call the listFiles() function to list files in the directory.
+         
+         - If the choice is 3, exit the program.
+         
+         - If the choice is invalid, display an error message and return to the menu.
+
+4) End the program.
+
