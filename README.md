@@ -544,3 +544,69 @@ ALGORITHM STEPS:-
 
 4) End the program.
 
+
+
+#15-> ORGANIZING THE FILE USING TWO LEVEL DIRECTORY STRUCTURE:-
+
+ALGORITHM STEPS:-
+
+1) Start the program.
+
+2) Create functions for file organization:
+
+    a. createUserDirectory():
+
+    i. Prompt the user to enter a username.
+
+    ii. Use the mkdir function to create a directory with the username as the directory name.
+
+    iii. If successful, display a success message; otherwise, display an error message.
+
+   b. createUserFile():
+
+     i. Prompt the user to enter a username and a filename.
+
+     ii. Construct the full path by combining the username and filename.
+
+     iii. Use fopen to create the file in the specified user directory.
+
+     iv. If successful, display a success message; otherwise, display an error message.
+
+   c. listUserFiles():
+
+    i. Prompt the user to enter a username.
+
+    ii. Use the system command 'ls' to list all files in the specified user directory.
+   
+    iii. Display the list of files to the user.
+
+3. In the main function:
+
+    a. Create an infinite loop to display a menu to the user:
+
+    i. Display available options:
+
+    - Create a user directory
+         
+    - Create a user file
+         
+    - List user files
+         
+    - Exit
+
+      ii. Prompt the user for their choice (1, 2, 3, or 4).
+
+      iii. Use a switch statement to perform actions based on the user's choice:
+        
+         - If the choice is 1, call the createUserDirectory() function to create a user directory.
+        
+         - If the choice is 2, call the createUserFile() function to create a file within a user directory.
+        
+         - If the choice is 3, call the listUserFiles() function to list files in a user directory.
+        
+         - If the choice is 4, exit the program.
+       
+         - If the choice is invalid, display an error message and return to the menu.
+
+5. End the program.
+
